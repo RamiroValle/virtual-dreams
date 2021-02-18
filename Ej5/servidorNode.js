@@ -5,17 +5,18 @@ var app = express();
 
 var personas = "https://reclutamiento-14cf7.firebaseio.com/personas.json";
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
     if (validarJson(req.body)) {
         request.post(personas, {
-            json: { 
+            json: {
                 "nombre:": req.body.nombre || "",
                 "apellido": req.body.apellido,
-                "dni": parseInt(req.body.dni)}
-            }, function (err) {
+                "dni": parseInt(req.body.dni)
+            }
+        }, function (err) {
             res.sendStatus(err ? 500 : 201)
         })
     }

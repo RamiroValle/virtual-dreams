@@ -5,7 +5,7 @@ var req = {
     uri: 'https://reclutamiento-14cf7.firebaseio.com/personas.json',
     json: true
 };
- 
+
 rp(req)
     .then(function (personas) {
         console.log(personas);
@@ -13,4 +13,3 @@ rp(req)
     .catch(function (err) {
         console.log(err)
     });
-    
